@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import axios from "axios";
 
 interface DeleteNoteButtonProps {
@@ -18,8 +18,11 @@ export default function DeleteNoteButton({ id }: DeleteNoteButtonProps) {
   }
 
   return (
-    <div>
-      <button onClick={clickHandler}>Delete Note</button>
-    </div>
+    <button
+      onClick={clickHandler}
+      className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium text-sm rounded-md transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 active:bg-red-800"
+    >
+      Delete Note
+    </button>
   );
 }

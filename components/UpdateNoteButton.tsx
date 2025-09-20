@@ -25,30 +25,57 @@ export default function UpdateNoteButton({ id }: UpdateNoteButtonProps) {
   }
 
   return (
-    <div style={{ marginTop: "0.5rem" }}>
+    <div className="mt-2">
       {!showForm && (
-        <button onClick={() => setShowForm(true)}>Edit Note</button>
+        <button
+          onClick={() => setShowForm(true)}
+          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm rounded-md transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        >
+          Edit Note
+        </button>
       )}
-
+      
       {showForm && (
-        <div>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="Enter new title"
-          />
-          <input
-            type="text"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            placeholder="Enter new content"
-          />
-          <button onClick={handleUpdate}>Update</button>
-          <button onClick={() => setShowForm(false)}>Cancel</button>
+        <div className="mt-3 p-4 bg-gray-50 rounded-lg border border-gray-200">
+          <div className="space-y-3">
+            <div>
+              <input
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="Enter new title"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+              />
+            </div>
+            
+            <div>
+              <input
+                type="text"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                placeholder="Enter new content"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+              />
+            </div>
+            
+            <div className="flex gap-2 pt-2">
+              <button
+                onClick={handleUpdate}
+                className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-medium text-sm rounded-md transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+              >
+                Update
+              </button>
+              
+              <button
+                onClick={() => setShowForm(false)}
+                className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white font-medium text-sm rounded-md transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>
   );
 }
-
